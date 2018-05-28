@@ -21,8 +21,8 @@ func LoadApp() {
 	form := tview.NewForm().
 		AddInputField(heightField.GetLabel(), "", 10, nil, nil).
 		AddInputField(weightField.GetLabel(), "", 10, nil, nil).
-		AddButton("Calculate BMI", calc.calculate(heightField.GetText(), weightField.GetText())).
-		AddButton("Exit", func() {
+		AddButton(calculateButton.GetLabel(), calc.Calculate(heightField.GetText(), weightField.GetText())).
+		AddButton(exitButton.GetLabel(), func() {
 			app.Stop()
 		}).
 		SetCancelFunc(func() {
@@ -34,3 +34,7 @@ func LoadApp() {
 		panic(err)
 	}
 }
+
+//it has to be a type func()
+//so i need a method to return a func()
+//this func should take in parameters and return a func
