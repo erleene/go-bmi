@@ -21,9 +21,9 @@ func LoadApp() {
 	form := tview.NewForm().
 		AddInputField(heightField.GetLabel(), "", 10, nil, nil).
 		AddInputField(weightField.GetLabel(), "", 10, nil, nil).
-		AddButton(calculateButton.GetLabel(), calculateButton.SetSelectedFunc(func() {
+		AddButton(calculateButton.GetLabel(), func() {
 			calc.Calculate(heightField.GetText(), weightField.GetText())
-		})).
+		}).
 		AddButton(exitButton.GetLabel(), func() {
 			app.Stop()
 		}).
